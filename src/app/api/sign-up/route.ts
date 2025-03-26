@@ -47,6 +47,7 @@ export async function POST(request: Request) {
                 existingUserByEmail.password = hashedPass;
                 existingUserByEmail.verifyCode = verifyCode;
                 existingUserByEmail.verifyCodeExpiry = new Date(Date.now()+3600000)
+                await existingUserByEmail.save()
             }
         } else {
             // this is where we will create the new user 
