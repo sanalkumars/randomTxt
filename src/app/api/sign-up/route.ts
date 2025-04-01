@@ -9,9 +9,9 @@ export async function POST(request: Request) {
     await connectDB();
 
     try {
-        // always use await for getting values from teh request in nextJS
+        // always use await for getting values from the request in nextJS
         const { email, username, password } = await request.json();
-        //    fits we check if the username + email already exists and is already verified
+        //    first we check if the username + email already exists and is already verified
 
         const existingVerifiedUserByUsername = await UserModel.findOne({
             username,
